@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Appointment </title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Home </a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully booked an appointment</div>
+				</div>
+        
+					<h3 class="container">Make an Appointment</h3>
+					<form th:action="@{/appointment}" method="post" th:object="${appointment}">
+					<div class="container">
+						<div class="row">
+							<form action="#" method="post">
+								<select class="form-control mb-3" id="specialization" type="text" th:field="*{specialization}" required autofocus="autofocus">
+									<option value="Neurology">Neurology</option>
+									<option value="Dentistry">Dentistry</option>
+									<option value="Cardiology">Cardiology</option>
+									<option value="Pediatrics">Pediatrics</option>
+									<option value="Pulmonology">Pulmonology</option>
+									<option value="Ophthalmology">Ophthalmology</option>
+									<option value="Diagnostics">Diagnostics</option>
+								 </select><br>
+								 <input class="form-control mb-3" type="text" placeholder="Doctor Name" name="doctorname" id="doctorname" th:field="*{doctorname}" required autofocus="autofocus"><br>
+								 <input class="form-control mb-3" type="text" placeholder="Name" name="name" id="name" th:field="*{name}" required autofocus="autofocus"><br>
+								<select class="form-control mb-3" id="gender" type="text" th:field="*{gender}" required autofocus="autofocus">
+									<option value="Gender">Gender</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select><br>
+								<input class="form-control mb-3" type="number" placeholder="Phone" name="number" id="number" th:field="*{number}" required autofocus="autofocus"><br>
+								<input class="form-control mb-3" type="email" placeholder="E-mail" name="email" id="email" th:field="*{email}" required autofocus="autofocus"><br>
+								<input class="form-control date mb-3" id="datepicker" name="Text" placeholder="Select Date"  type="date" th:field="*{date}" required autofocus="autofocus"><br>
+								<button type="submit" class="btn btn-success">Make An Appointment</button><br>
+							</form><br><br>
+						</div>
+					</div>
+					</form>
+    <script src="js/SmoothScroll.min.js"></script>
+    
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

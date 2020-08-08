@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactiondetails</title>
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<div class="d-flex justify-content-center">
+				<a class="navbar-brand" href="#" th:href="@{/Doctorhome}">See Details</a>
+				
+				<a class="navbar-brand"  href="#" th:href="@{/doctorlogin}">Logout</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	
+	<h2>Patient Details</h2>
+<table border="1">
+    <tr>
+        <th>specialization</th>
+        <th>doctorname</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>PhoneNumber</th>
+        <th>email</th>
+        <th>date</th>
+    </tr>
+    <tr th:each = "doc: ${Doctorview}">
+    <td th:text="${doc.specialization}"></td>
+        <td th:text="${doc.doctorname}"></td>
+        <td th:text="${doc.name}">vasile</td>
+        <td th:text="${doc.gender}">45</td>
+        <td th:text="${doc.number}">12</td>
+        <td th:text="${doc.email}">12</td>
+        <td th:text="${doc.date}">21</td>
+    </tr>
+</table>		
+</body>
+</html>
